@@ -3,5 +3,5 @@ export interface CreateUserDto {
     email: string;
     phone: string;
     cpf: string;
-    passord: string;
+    password: string;
 }

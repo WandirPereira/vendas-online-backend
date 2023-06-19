@@ -26,6 +26,8 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+git remote add origin git@github.com:WandirPereira/vendas-online-backend.git
+
 ## Installation
 
 ```bash
