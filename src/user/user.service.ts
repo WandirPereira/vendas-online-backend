@@ -26,6 +26,8 @@ export class UserService {
     }
 
     async getAllUsers(): Promise<UserEntity[]> {
+        //console.log('caminho-entity =', `${__dirname}/**/*.entity{.js,.ts}`);
+        //console.log('caminho = ', `${__dirname}/migration/{.js,.ts}`);
         return this.userRepository.find();
     }
 }
