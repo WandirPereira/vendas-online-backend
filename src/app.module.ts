@@ -6,6 +6,7 @@ import { UserEntity } from './user/entities/user.entity';
 import { StateModule } from './state/state.module';
 import { CityModule } from './city/city.module';
 import { AddressModule } from './address/address.module';
+import { CacheModule } from './cache/cache.module';
 import path from 'path';
 
 @Module({
@@ -30,7 +31,8 @@ import path from 'path';
     }),
     StateModule,
     CityModule,
-    AddressModule
+    AddressModule,
+    CacheModule
   ],
   controllers: [],
   providers: [],
