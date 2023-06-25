@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, UsePipes, ValidationPipe } from '@nestjs/common';
+import { Controller, Get, Post, Body, UsePipes, ValidationPipe, Param } from '@nestjs/common';
 import { CreateUserDto } from './dtos/createUser.dto';
 import { UserService } from './user.service';
 import { UserEntity } from './entities/user.entity';
@@ -26,5 +26,11 @@ export class UserController {
         // }
         return this.userService.createUser(createUser)
     };
+
+    @Get('/:userId')
+    async getUserById(@Param('userId') userId): Promise<ReturnUserDto> {
+        const usuario = (await this.userService.findUserById(userId));
+        return new ReturnUserDto(usuario);
+    }
 
 }

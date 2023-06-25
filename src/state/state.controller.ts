@@ -13,4 +13,5 @@ export class StateController {
     async getAllState(): Promise<StateEntity[]> {
         return this.stateService.getAllState();
     }
+
 }

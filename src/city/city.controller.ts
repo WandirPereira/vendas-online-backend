@@ -14,8 +14,13 @@ export class CityController {
         return this.cityService.getAllCities();
     }
 
-    @Get('/:stateId')
+    @Get('/state/:stateId')
     async getAllCitiesByStateId(@Param('stateId') stateId: number): Promise<CityEntity[]> {
         return this.cityService.getAllCitiesByStateId(stateId);
+    }
+
+    @Get('/:cityId')
+    async getUserById(@Param('cityId') cityId): Promise<CityEntity> {
+        return this.cityService.findCityById(cityId);
     }
 }
