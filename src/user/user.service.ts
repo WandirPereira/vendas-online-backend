@@ -32,12 +32,29 @@ export class UserService {
         return this.userRepository.find();
     }
 
+    async findUserByIdUsingRelations(userId: number): Promise<UserEntity> {
+        //console.log('userId=', userId);
+        const user = await this.userRepository.findOne({
+            where: {
+                id: userId,
+            },
+            relations: ['addresses'],
+        });
+
+        if (!user) {
+            //throw new NotFoundException('Usuário não encontrado!');
+            throw new NotFoundException(`Usuário com userId:${userId} não encontrado!`);
+        }
+
+        return user;
+    }
+
     async findUserById(userId: number): Promise<UserEntity> {
         //console.log('userId=', userId);
         const user = await this.userRepository.findOne({
             where: {
                 id: userId,
-            }
+            },
         });
 
         if (!user) {

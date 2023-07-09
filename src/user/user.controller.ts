@@ -28,9 +28,10 @@ export class UserController {
     };
 
     @Get('/:userId')
-    async getUserById(@Param('userId') userId): Promise<ReturnUserDto> {
-        const usuario = (await this.userService.findUserById(userId));
+    async getUserByIdUsingRelations(@Param('userId') userId: number): Promise<ReturnUserDto> {
+        const usuario = (await this.userService.findUserByIdUsingRelations(userId));
         return new ReturnUserDto(usuario);
+        //return this.userService.findUserByIdUsingRelations(userId);
     }
 
 }
