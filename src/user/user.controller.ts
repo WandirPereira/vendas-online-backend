@@ -31,6 +31,7 @@ export class UserController {
     async getUserByIdUsingRelations(@Param('userId') userId: number): Promise<ReturnUserDto> {
         const usuario = (await this.userService.findUserByIdUsingRelations(userId));
         return new ReturnUserDto(usuario);
+        //return usuario;
         //return this.userService.findUserByIdUsingRelations(userId);
     }
 
