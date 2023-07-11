@@ -39,6 +39,7 @@ export class UserService {
                 id: userId,
             },
             //relations: ['addresses'],
+            //Find Options da documentacao do TypeORM 
             relations: {
                 addresses: {
                     city: {
@@ -67,6 +68,22 @@ export class UserService {
         if (!user) {
             //throw new NotFoundException('Usuário não encontrado!');
             throw new NotFoundException(`Usuário com userId:${userId} não encontrado!`);
+        }
+
+        return user;
+    }
+
+    async findUserByEmail(email: string): Promise<UserEntity> {
+        //console.log('userId=', userId);
+        const user = await this.userRepository.findOne({
+            where: {
+                email,
+            },
+        });
+
+        if (!user) {
+            //throw new NotFoundException('Usuário não encontrado!');
+            throw new NotFoundException(`Usuário com email: ${email} não encontrado!`);
         }
 
         return user;
