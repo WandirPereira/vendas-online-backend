@@ -22,7 +22,7 @@ export class UserEntity {
     password: string;
 
     @Column({ name: 'type_user', nullable: false })
-    type_user: number;
+    typeUser: number;
 
     @CreateDateColumn({ name: 'created_at' })
     createdAt: Date;
@@ -30,6 +30,6 @@ export class UserEntity {
     @UpdateDateColumn({ name: 'updated_at' })
     updatedAt: Date;
 
-    @OneToMany(() => AddressEntity, (address) => address.user) 
+    @OneToMany(() => AddressEntity, (address) => address.user)
     addresses?: AddressEntity[];
 }
